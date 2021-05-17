@@ -13,6 +13,37 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// ブログ一覧
 Route::get('/',
 'App\Http\Controllers\BlogController@showList')->name
 ('blogs');
+
+// ブログ登録画面
+Route::get('/blog/create',
+'App\Http\Controllers\BlogController@showCreate')->name
+('create');
+
+// ブログ登録
+Route::post('/blog/store',
+'App\Http\Controllers\BlogController@exeStore')->name
+('store');
+
+// ブログ詳細
+Route::get('/blog/{id}',
+'App\Http\Controllers\BlogController@showDetail')->name
+('show');
+
+// ブログ編集画面
+Route::get('/blog/edit/{id}',
+'App\Http\Controllers\BlogController@showEdit')->name
+('edit');
+
+// ブログ更新
+Route::post('/blog/update',
+'App\Http\Controllers\BlogController@exeUpdate')->name
+('update');
+
+// ブログ削除
+Route::post('/blog/delete/{id}',
+'App\Http\Controllers\BlogController@exeDelete')->name
+('delete');
